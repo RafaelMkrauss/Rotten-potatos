@@ -1,0 +1,15 @@
+<%= form_with model: @movie do |f| %>
+  <%= f.label :title, 'Título' %>
+  <%= f.text_field :title %>
+
+  <%= f.label :rating, 'Classificação' %>
+  <%= f.select :rating, ['G', 'PG', 'PG-13', 'R', 'NC-17'] %>
+
+  <%= f.label :description, 'Descrição' %>
+  <%= f.text_area :description, rows: 6 %>
+
+  <%= f.label :release_date, 'Estreia' %>
+  <%= f.date_select :release_date %>
+
+  <%= f.submit 'Salvar' %>
+<% end %>

@@ -1,0 +1,24 @@
+<h1>Todos os filmes</h1>
+
+<table id="movies">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Classificação</th>
+      <th>Estreia</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.title %></td>
+        <td><%= movie.rating %></td>
+        <td><%= movie.release_date&.strftime("%d/%m/%Y") %></td>
+        <td><%= link_to "Mais sobre #{movie.title}", movie_path(movie) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Adicionar filme', new_movie_path %>

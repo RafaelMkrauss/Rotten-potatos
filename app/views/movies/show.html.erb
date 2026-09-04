@@ -1,0 +1,18 @@
+<h2>Detalhes sobre <%= @movie.title %></h2>
+
+<ul id="details">
+  <li>Classificação: <%= @movie.rating %></li>
+  <li>Estreia: <%= @movie.release_date&.strftime("%d/%m/%Y") %></li>
+</ul>
+
+<h3>Descrição</h3>
+<p id="description"><%= @movie.description %></p>
+
+<%= link_to 'Voltar para a lista', movies_path %>
+
+<%= link_to 'Editar', edit_movie_path(@movie) %>
+
+<%= button_to 'Apagar', movie_path(@movie),
+      method: :delete,
+      form: { data: { turbo_confirm: 'Tem certeza?' } } %>
+
