@@ -3,13 +3,13 @@
   <%= f.text_field :title %>
 
   <%= f.label :rating, 'Classificação' %>
-  <%= f.select :rating, ['G', 'PG', 'PG-13', 'R', 'NC-17'] %>
+  <%= f.select :rating, Movie::RATINGS %>
 
   <%= f.label :description, 'Descrição' %>
   <%= f.text_area :description, rows: 6 %>
 
   <%= f.label :release_date, 'Estreia' %>
-  <%= f.date_select :release_date %>
+  <%= f.date_select :release_date, start_year: 1900, end_year: Date.current.year %>
 
   <%= f.submit 'Salvar' %>
 <% end %>

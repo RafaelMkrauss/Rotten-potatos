@@ -11,6 +11,15 @@ class MoviesController < ApplicationController
     @movie = Movie.new
   end
 
+  def create
+    @movie = Movie.new(movie_params)
+    if @movie.save
+      redirect_to movies_path, notice: "#{@movie.title} foi criado."
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   def edit
     @movie = Movie.find(params[:id])
   end
@@ -24,22 +33,11 @@ class MoviesController < ApplicationController
     end
   end
 
-  def create
-    @movie = Movie.new(movie_params)
-    if @movie.save
-      redirect_to movies_path, notice: "#{@movie.title} foi criado."
-    else
-      render :new, status: :unprocessable_entity
-    end
-  end
-
-   def destroy
+  def destroy
     @movie = Movie.find(params[:id])
     @movie.destroy
     redirect_to movies_path, notice: "Filme '#{@movie.title}' apagado."
   end
-
-  
 
   private
 
