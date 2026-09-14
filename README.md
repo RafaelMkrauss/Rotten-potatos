@@ -7,14 +7,14 @@ Approach Using Cloud Computing*, de Armando Fox e David Patterson.
 O app expõe um único recurso — `Movie` — com o CRUD completo sobre rotas RESTful:
 listar, ver, criar, editar e apagar filmes.
 
-## Requisitos
+## Requisitos:
 
 - Ruby 3.4.10
 - Bundler
 
 O banco é SQLite, embutido na gem `sqlite3` — não é preciso instalar nada à parte.
 
-## Como rodar
+## Como rodar:
 
 ```sh
 bundle install
